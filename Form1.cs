@@ -37,11 +37,13 @@ namespace Assessed_Exercise_1_Solution
 
         private void displayButton_Click(object sender, EventArgs e) {
             CustomersBox.Items.Clear();
-            for (int i = 0; i < customerQueue.getCount(); i++){
+            int head = customerQueue.getHead();
+            for (int i = head; i <= customerQueue.getCount(); i++){
+                if(customerQueue.getCustomer(i) != null)
+                {
                 CustomersBox.Items.Add(i + ": " + customerQueue.getCustomer(i).getInformation());
+                }
             }
-
-            // read all items in the dictionary; notice the syntax of the foreach
         }
 
         private void dequeueButton_Click(object sender, EventArgs e) {

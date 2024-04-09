@@ -26,6 +26,10 @@ namespace Assessed_Exercise_1_Solution{
             return count;
         }   
 
+        public int getHead() {
+            return head;
+        }
+
         public Customer getCustomer(int index)
         {
             return customers[index];
@@ -67,8 +71,7 @@ namespace Assessed_Exercise_1_Solution{
 
         public Customer Dequeue(){
             Console.WriteLine("Dequeue");
-            if (count == 0)
-            {
+            if (count == 0) {
                 Console.WriteLine("CustomerQueue is empty");
                 return null;
             }

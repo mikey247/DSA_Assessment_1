@@ -39,7 +39,7 @@ namespace Assessed_Exercise_1_Solution
         }
 
         public string getInformation(){
-            return "Name: " + name + " \nAge: " + age + " \nAddress: " + address + " \nAmount Owed: " + amountOwed;
+            return "Name: " + name + ", | Age: " + age + ", | Address: " + address + ", | Amount Owed: " + amountOwed;
         }
 
         public Customer(string name, int age, string address, float amountOwed) {

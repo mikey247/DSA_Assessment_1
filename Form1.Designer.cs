@@ -178,10 +178,10 @@
             this.totalDebtButton.UseVisualStyleBackColor = true;
             this.totalDebtButton.Click += new System.EventHandler(this.totalDebtButton_Click);
             // 
-            // highestDebtTextBox
+            // highestDebtorTextBox
             // 
             this.highestDebtorTextBox.Location = new System.Drawing.Point(12, 204);
-            this.highestDebtorTextBox.Name = "highestDebtTextBox";
+            this.highestDebtorTextBox.Name = "highestDebtorTextBox";
             this.highestDebtorTextBox.Size = new System.Drawing.Size(162, 37);
             this.highestDebtorTextBox.TabIndex = 16;
             this.highestDebtorTextBox.Text = "";
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(913, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.highestDebtorTextBox);
             this.Controls.Add(this.totalDebtButton);
