@@ -45,6 +45,7 @@
             this.totalDebtButton = new System.Windows.Forms.Button();
             this.highestDebtorTextBox = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.totalDebtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CustomersBox
@@ -196,11 +197,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // totalDebtBox
+            // 
+            this.totalDebtBox.Location = new System.Drawing.Point(12, 272);
+            this.totalDebtBox.Name = "totalDebtBox";
+            this.totalDebtBox.Size = new System.Drawing.Size(157, 20);
+            this.totalDebtBox.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 450);
+            this.Controls.Add(this.totalDebtBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.highestDebtorTextBox);
             this.Controls.Add(this.totalDebtButton);
@@ -244,6 +253,7 @@
         private System.Windows.Forms.Button totalDebtButton;
         private System.Windows.Forms.RichTextBox highestDebtorTextBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox totalDebtBox;
     }
 }
 

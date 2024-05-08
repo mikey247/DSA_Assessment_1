@@ -16,8 +16,12 @@ namespace Assessed_Exercise_1_Solution
         public Form1()
         {
             InitializeComponent();
-            customerQueue.Enqueue(new Customer("John", 20, "1 High Street", 10));
+            customerQueue.Enqueue(new Customer("John", 20, "1 High Street", 70));
             customerQueue.Enqueue(new Customer("Jane", 21, "2 High Street", 20));
+            customerQueue.Enqueue(new Customer("Jack", 22, "3 High Street", 30));
+            customerQueue.Enqueue(new Customer("Jill", 23, "4 High Street", 40));   
+            customerQueue.Enqueue(new Customer("James", 24, "5 High Street", 50));
+            getCustomerWithHighestAmountOwed();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,6 +32,11 @@ namespace Assessed_Exercise_1_Solution
         private void addButton_Click(object sender, EventArgs e){
             Customer customer = new Customer(nameBox.Text, Convert.ToInt32(ageBox.Text), addressBox.Text, Convert.ToInt32(amountBox.Text));
             customerQueue.Enqueue(customer);
+            getCustomerWithHighestAmountOwed();
+            nameBox.Text = "";
+            ageBox.Text = "";
+            addressBox.Text = "";
+            amountBox.Text = "";
         }
 
         private void CustomersBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,11 +46,12 @@ namespace Assessed_Exercise_1_Solution
 
         private void displayButton_Click(object sender, EventArgs e) {
             CustomersBox.Items.Clear();
-            int head = customerQueue.getHead();
-            for (int i = head; i <= customerQueue.getCount(); i++){
-                if(customerQueue.getCustomer(i) != null)
-                {
-                CustomersBox.Items.Add(i + ": " + customerQueue.getCustomer(i).getInformation());
+
+            List<Customer> customers = customerQueue.Display();
+            //check length of list
+            if(customers !=null && customers.Count > 0){
+                foreach (Customer customer in customers){
+                    CustomersBox.Items.Add(customer.getInformation());
                 }
             }
         }
@@ -50,7 +60,8 @@ namespace Assessed_Exercise_1_Solution
            Customer customer = customerQueue.Dequeue();
             if (customer != null) {
                 dequeueTextBox.Text = "Dequeued: " + customer.getInformation();
-              }
+            }
+            getCustomerWithHighestAmountOwed();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,12 +76,21 @@ namespace Assessed_Exercise_1_Solution
 
         private void totalDebtButton_Click(object sender, EventArgs e){
            float total = customerQueue.calculateTotalAmountOwed();
-            totalDebtTextBox.Text = "Total amount owed: " + total;
+            totalDebtBox.Text = "Total amount owed: " + total;
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void getCustomerWithHighestAmountOwed (){
             Customer customer = customerQueue.getCustomerWithHighestAmountOwed();
-            highestDebtorTextBox.Text = "Customer with highest debt: " + customer.getInformation();
+            if(customer != null){
+                highestDebtorTextBox.Text = "Customer with highest debt: " + customer.getInformation();
+            }
+            else {
+                highestDebtorTextBox.Text = "No customers in queue";
+            }
+        }   
+
+        private void button1_Click(object sender, EventArgs e) {
+          getCustomerWithHighestAmountOwed();
         }
     }
 }

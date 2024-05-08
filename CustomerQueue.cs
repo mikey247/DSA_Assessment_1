@@ -44,45 +44,52 @@ namespace Assessed_Exercise_1_Solution{
         }
 
         public Customer getCustomerWithHighestAmountOwed(){
-            Customer customer = customers[0];
-            for (int i = 1; i < count; i++) {
-                if (customers[i].AmountOwed > customer.AmountOwed) {
+            int i = head;
+            Console.WriteLine("Head " + head);
+            Customer customer = customers[i];
+            for (int j = 0; j < count; j++){
+                if (customers[i].AmountOwed > customer.AmountOwed){
                     customer = customers[i];
                 }
+                Console.WriteLine("I: " + i + " SIze: " + size); 
+                i = (i + 1) % size;
+                Console.WriteLine("I: " + i );
             }
             return customer;
         }   
 
         public void Enqueue(Customer customer){
-            Console.WriteLine("Enque");
+            //Console.WriteLine("Enque");
             if (count == size){
                 Console.WriteLine("CustomerQueue is full");
                 return;
             }
-            Console.WriteLine("Tail BEfore: " + tail);
+            //Console.WriteLine("Tail BEfore: " + tail);
             tail = (tail + 1) % size;
-            Console.WriteLine("Tail: " + tail);
-            Console.WriteLine("Size: " + size); 
+            //Console.WriteLine("Head: " + head);
+            //Console.WriteLine("Tail: " + tail);
+            //Console.WriteLine("Size: " + size); 
             customers[tail] = customer;
             count++;
-            Console.WriteLine("Count: " + count);
-            Console.WriteLine("\n");
+            //Console.WriteLine("Count: " + count);
+            //Console.WriteLine("\n");
         }
 
         public Customer Dequeue(){
-            Console.WriteLine("Dequeue");
+            //Console.WriteLine("Dequeue");
             if (count == 0) {
                 Console.WriteLine("CustomerQueue is empty");
                 return null;
             }
             Customer customer = customers[head];
-            Console.WriteLine("Head Before: " + head);
-            Console.WriteLine("Size: " + size);
+            //Console.WriteLine("Head Before: " + head);
+            //Console.WriteLine("Size: " + size);
             head = (head + 1) % size;
             count--;
 
-            Console.WriteLine("Head: After" + head);
-            Console.WriteLine("Count: " + count);
+            //Console.WriteLine("Head After:" + head);
+            //Console.WriteLine("Count: " + count);
+            //Console.WriteLine("Size After: " + size);
             return customer;
         }
 
@@ -98,19 +105,20 @@ namespace Assessed_Exercise_1_Solution{
 
 
 
-        public void Display()
-        {
-            if (count == 0)
-            {
+        public List<Customer> Display(){
+            List<Customer> allCustomers = new List<Customer>();
+            if (count == 0){
                 Console.WriteLine("CustomerQueue is empty");
-                return;
+                return null;
             }
             int i = head;
-            for (int j = 0; j < count; j++)
-            {
+            for (int j = 0; j < count; j++){
                 Console.WriteLine(customers[i].getInformation());
+                allCustomers.Add(customers[i]);
                 i = (i + 1) % size;
             }
+
+            return allCustomers;
         }
     }
 }
